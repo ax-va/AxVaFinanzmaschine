@@ -1,4 +1,5 @@
 import datetime
+import math
 
 from lot import Lot
 
@@ -25,12 +26,11 @@ class Tranche:
         # Can switch to HUNTER if:
         # entry_price * (1 - p) >= vac_upper
         # <=> entry_price >= vac_upper / (1 - p)
-        # Next bind `profit_pct` and `loss_pct` together:
-        # entry_price >= vac_upper / 2 * (1 / (1 - profit_pct) + 1 / (1 - loss_pct))
+        # Next bind `profit_pct` and `loss_pct` together via the geometric mean:
         self.acc_upper = (
             acc_upper
             if acc_upper is not None
-            else self.vac_upper / 2 * (1 / (1 - self.profit_pct) + 1 / (1 - self.loss_pct))
+            else math.sqrt(self.vac_upper / (1 / (1 - self.profit_pct) + 1 / (1 - self.loss_pct)))
         )
 
     @property

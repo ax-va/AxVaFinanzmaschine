@@ -17,7 +17,6 @@ class Lot:
 
     def buy(self, cash: float, price: float, price_dt: datetime.datetime) -> None:
         assert cash > 0
-        assert price > 0
         assert self.amount == 0
         self.amount = cash / price
         self.price_bought = price

@@ -17,8 +17,8 @@ def detect_mode(price, vacuum_upper, acc_upper) -> Mode:
 
 if __name__ == "__main__":
     local_high = 4000
-    profit_p = 0.2  # take profit
-    loss_p = profit_p * 2
+    profit_p = 0.2  # take profit percent
+    loss_p = profit_p * 2  # acceptable loss percent
     vacuum_upper = local_high * (1 - loss_p)
     print("vacuum_upper:", vacuum_upper)
 

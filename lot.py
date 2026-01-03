@@ -2,11 +2,7 @@ import datetime
 
 
 class Lot:
-    def __init__(
-        self,
-        name: str,
-    ):
-        self.name: str = name
+    def __init__(self):
         self.amount = 0
         self.price_bought = None
         self.price_bought_dt = None
@@ -21,6 +17,7 @@ class Lot:
     ) -> None:
         assert cash > 0
         assert self.amount == 0
+
         self.amount = cash / price
         self.price_bought = price
         self.price_bought_dt = price_dt
@@ -31,6 +28,7 @@ class Lot:
         price_dt: datetime.datetime,
     ) -> float:
         assert self.amount > 0
+
         cash = self.amount * price
         self.price_sold = price
         self.price_sold_dt = price_dt

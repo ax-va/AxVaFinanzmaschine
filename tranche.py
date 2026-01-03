@@ -7,14 +7,14 @@ from mode import Mode
 class Tranche:
     def __init__(
         self,
-        etp_lot: EtpLot,
+        share_lot: ShareLot,
         asset_local_high: float,
         asset_profit_pct: float = 0.2,  # +20%
         asset_loss_pct: float = 0.4,  # -40%
         asset_vac_upper: float = None,
         asset_acc_upper: float = None,
     ):
-        self.etp_lot = etp_lot
+        self.share_lot = share_lot
         self.asset_local_high = asset_local_high
         self.asset_profit_pct = asset_profit_pct
         self.asset_loss_pct = asset_loss_pct
@@ -35,15 +35,15 @@ class Tranche:
 
     @property
     def start_date(self) -> datetime.date:
-        return self.etp_lot.price_bought_dt.date()
+        return self.share_lot.price_bought_dt.date()
 
     @property
     def asset_limit_order(self) -> float:
-        return self.etp_lot.asset.price_bought * (1 + self.asset_profit_pct)
+        return self.share_lot.asset_lot.price_bought * (1 + self.asset_profit_pct)
 
     @property
     def asset_stop_loss(self) -> float:
-        asset_stop_loss_raw = self.lot.asset.price_bought * (1 - self.asset_loss_pct)
+        asset_stop_loss_raw = self.share_lot.asset_lot.price_bought * (1 - self.asset_loss_pct)
         asset_stop_loss = max(self.asset_vac_upper, asset_stop_loss_raw)
         return asset_stop_loss
 

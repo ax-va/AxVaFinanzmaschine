@@ -24,8 +24,7 @@ class Tranche:
         )
         # Can switch to HUNTER if:
         # entry_price * (1 - p) >= vac_upper
-        # <=>
-        # entry_price >= vac_upper / (1 - p)
+        # <=> entry_price >= vac_upper / (1 - p)
         # Next bind `profit_pct` and `loss_pct` together:
         # entry_price >= vac_upper / 2 * (1 / (1 - profit_pct) + 1 / (1 - loss_pct))
         self.acc_upper = (

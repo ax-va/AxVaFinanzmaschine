@@ -25,8 +25,7 @@ class Tranche:
             else self.asset_local_high * (1 - self.asset_loss_pct)
         )
         # Can switch to HUNTER if:
-        # price * (1 - p) >= vac_upper
-        # <=> price >= vac_upper / (1 - p)
+        # price * (1 - p) >= vac_upper <=> price >= vac_upper / (1 - p).
         # Next bind `profit_pct` and `loss_pct` via the geometric mean:
         self.asset_acc_upper = (
             asset_acc_upper

@@ -25,8 +25,8 @@ def buy_share_lot(
     price_dt: datetime.datetime,
 ) -> None:
     share_lot.buy(cash, share_price, price_dt)
-    asset_price: float = share_price / asset_per_share
-    share_lot.asset_lot.buy(cash, asset_price, price_dt)
+    implied_asset_price: float = share_price / asset_per_share
+    share_lot.asset_lot.buy(cash, implied_asset_price, price_dt)
 
 
 def sell_share_lot(
@@ -36,6 +36,6 @@ def sell_share_lot(
     price_dt: datetime.datetime,
 ) -> float:
     cash: float = share_lot.sell(share_price, price_dt)
-    asset_price: float = share_price / asset_per_share
-    share_lot.asset_lot.sell(asset_price, price_dt)
+    implied_asset_price: float = share_price / asset_per_share
+    share_lot.asset_lot.sell(implied_asset_price, price_dt)
     return cash

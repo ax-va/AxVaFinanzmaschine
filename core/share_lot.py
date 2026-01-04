@@ -1,7 +1,8 @@
 import datetime
 
-from asset_lot import AssetLot
-from lot import Lot
+from core.asset_lot import AssetLot
+from core.instrument import Instrument
+from core.lot import Lot
 
 
 class ShareLot(Lot):
@@ -9,14 +10,16 @@ class ShareLot(Lot):
         self,
         share_isin: str,
         share_name: str,
+        share_instrument: Instrument,
         asset_name: str,
     ):
         self.isin: str = share_isin
         self.name: str = share_name
-        self.units: float = 0
+        self.instrument: Instrument = share_instrument
+        self.units: float = 0  # amount
         self.asset_lot = AssetLot(asset_name)
-        self.entitlement_bought: float | None = None
-        self.entitlement_sold: float | None = None
+        self.entitlement_bought: float | None = None  # asset per share
+        self.entitlement_sold: float | None = None  # asset per share
         super().__init__()
 
     def buy(

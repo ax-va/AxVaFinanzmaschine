@@ -1,4 +1,6 @@
-from lot import Lot
+import datetime
+
+from core.lot import Lot
 
 
 class AssetLot(Lot):

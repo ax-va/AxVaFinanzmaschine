@@ -1,10 +1,10 @@
 import datetime
 
-from core.asset import Asset
-from core.lot import Lot
+from core.securities.asset import Asset
+from core.lots.base_lot import BaseLot
 
 
-class AssetLot(Lot):
+class AssetLot(BaseLot):
     def __init__(self, asset: Asset):
         super().__init__()
         self.asset: Asset = asset

@@ -2,12 +2,12 @@ import datetime
 import math
 from typing import List
 
-from core.asset_lot import AssetLot
-from core.instruments import Share
-from core.lot import Lot
+from core.lots.asset_lot import AssetLot
+from core.securities.instruments import Share
+from core.lots.base_lot import BaseLot
 
 
-class ShareLot(Lot):
+class ShareLot(BaseLot):
     def __init__(self, share: Share):
         super().__init__()
         self.share: Share = share

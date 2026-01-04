@@ -1,7 +1,7 @@
 import datetime
 import math
 
-from core.share_lot import ShareLot
+from core.lots.share_lot import ShareLot
 
 
 class Tranche:

@@ -2,7 +2,7 @@ import datetime
 from typing import List
 
 
-class Lot:
+class BaseLot:
     def __init__(self):
         self.units_in: float = 0
         self.price_in: float | None = None

@@ -55,8 +55,8 @@ def buy_share_lot(
 ) -> None:
     share_lot.buy(cash_in, share_price, price_dt)
     share_lot.entitlement_bought = entitlement
-    implied_asset_price: float = share_price / entitlement
-    share_lot.asset_lot.buy(share_lot.amount, entitlement, implied_asset_price, price_dt)
+    asset_price_implied: float = share_price / entitlement
+    share_lot.asset_lot.buy(share_lot.amount, entitlement, asset_price_implied, price_dt)
 
 
 def sell_share_lot(
@@ -67,6 +67,6 @@ def sell_share_lot(
 ) -> float:
     cash_out: float = share_lot.sell(share_price, price_dt)
     share_lot.entitlement_sold = entitlement
-    implied_asset_price: float = share_price / entitlement
-    share_lot.asset_lot.sell(share_lot.amount, entitlement, implied_asset_price, price_dt)
+    asset_price_implied: float = share_price / entitlement
+    share_lot.asset_lot.sell(share_lot.amount, entitlement, asset_price_implied, price_dt)
     return cash_out

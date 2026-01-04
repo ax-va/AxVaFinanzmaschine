@@ -12,7 +12,7 @@ class AssetLot(Lot):
         self,
         share_amount: float,
         entitlement: float,  # asset per share
-        implied_price: float,
+        price_implied: float,
         price_dt: datetime.datetime,
     ) -> None:
         assert share_amount > 0
@@ -20,14 +20,14 @@ class AssetLot(Lot):
         assert self.amount_bought == 0
 
         self.amount_bought: float = share_amount * entitlement
-        self.price_bought: float = implied_price
+        self.price_bought: float = price_implied
         self.price_bought_dt: datetime.datetime = price_dt
 
     def sell(
         self,
         share_amount: float,
         entitlement: float,  # asset per share
-        implied_price: float,
+        price_implied: float,
         price_dt: datetime.datetime,
     ) -> None:
         assert share_amount > 0
@@ -35,5 +35,5 @@ class AssetLot(Lot):
         assert self.amount_bought > 0
 
         self.amount_sold: float = share_amount * entitlement
-        self.price_sold: float = implied_price
+        self.price_sold: float = price_implied
         self.price_sold_dt: datetime.datetime = price_dt

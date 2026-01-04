@@ -2,9 +2,9 @@ from lot import Lot
 
 
 class AssetLot(Lot):
-    def __init__(self, asset_name: str = None):
+    def __init__(self, asset_name: str):
         self.name: str = asset_name
-        self.amount_bought: float | None = None
+        self.amount_bought: float = 0
         self.amount_sold: float | None = None
         super().__init__()
 
@@ -15,6 +15,8 @@ class AssetLot(Lot):
         implied_price: float,
         price_dt: datetime.datetime,
     ) -> None:
+        assert self.amount_bought == 0
+
         self.amount_bought: float = share_amount * entitlement
         self.price_bought: float = implied_price
         self.price_bought_dt: datetime.datetime = price_dt
@@ -26,6 +28,8 @@ class AssetLot(Lot):
         implied_price: float,
         price_dt: datetime.datetime,
     ) -> None:
+        assert self.amount_bought > 0
+
         self.amount_sold: float = share_amount * entitlement
         self.price_sold: float = implied_price
         self.price_sold_dt: datetime.datetime = price_dt

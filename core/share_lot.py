@@ -8,8 +8,8 @@ class ShareLot(Lot):
     def __init__(
         self,
         share_isin: str,
-        share_name: str = None,
-        asset_name: str = None,
+        share_name: str,
+        asset_name: str,
     ):
         self.isin: str = share_isin
         self.name: str = share_name

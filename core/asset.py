@@ -2,4 +2,4 @@ from enum import Enum
 
 
 class Asset(Enum):
-    ETH = "Ethereum"
+    ETH = "Ethereum (ETH)"

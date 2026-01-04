@@ -21,21 +21,21 @@ def buy_share_lot(
     share_lot: ShareLot,
     cash: float,
     share_price: float,
-    asset_per_share: float,
+    entitlement: float,  # asset per share
     price_dt: datetime.datetime,
 ) -> None:
     share_lot.buy(cash, share_price, price_dt)
-    implied_asset_price: float = share_price / asset_per_share
+    implied_asset_price: float = share_price / entitlement
     share_lot.asset_lot.buy(cash, implied_asset_price, price_dt)
 
 
 def sell_share_lot(
     share_lot: ShareLot,
     share_price: float,
-    asset_per_share: float,
+    entitlement: float,  # asset per share
     price_dt: datetime.datetime,
 ) -> float:
     cash: float = share_lot.sell(share_price, price_dt)
-    implied_asset_price: float = share_price / asset_per_share
+    implied_asset_price: float = share_price / entitlement
     share_lot.asset_lot.sell(implied_asset_price, price_dt)
     return cash

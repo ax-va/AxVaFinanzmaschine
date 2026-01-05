@@ -3,10 +3,10 @@ from typing import List
 
 from core.positions.asset_lot import AssetLot
 from core.market.instruments import Share
-from core.positions.base_lot import BaseLot
+from core.positions.position_lot import PositionLot
 
 
-class ShareLot(BaseLot):
+class ShareLot(PositionLot):
     def __init__(self, share: Share):
         super().__init__()
         self.share: Share = share

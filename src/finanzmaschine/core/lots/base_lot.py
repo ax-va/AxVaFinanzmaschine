@@ -16,10 +16,6 @@ class BaseLot:
     def units_out_total(self):
         return math.fsum(self.units_out_list)
 
-    @property
-    def units_open(self) -> float:
-        return self.units_in - self.units_out_total
-
     def record_in(
         self,
         *,

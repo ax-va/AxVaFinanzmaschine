@@ -1,6 +1,6 @@
-from core.market import Asset
-from core.market.exchange import Exchange
-from core.market.instruments import Etp
+from finanzmaschine.core.market import Asset
+from finanzmaschine.core.market.exchange import Exchange
+from finanzmaschine.core.market.instruments import Etp
 
 COINSHARES_PHYSICAL_STAKED_ETH = Etp(
     isin="GB00BLD4ZM24",

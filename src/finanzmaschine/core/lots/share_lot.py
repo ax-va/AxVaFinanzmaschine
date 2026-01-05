@@ -1,9 +1,9 @@
 import datetime
 from typing import List
 
-from core.positions.asset_lot import AssetLot
-from core.market.instruments import Share
-from core.positions.position_lot import PositionLot
+from finanzmaschine.core.lots.asset_lot import AssetLot
+from finanzmaschine.core.lots.position_lot import PositionLot
+from finanzmaschine.core.market.instruments import Share
 
 
 class ShareLot(PositionLot):
@@ -14,7 +14,7 @@ class ShareLot(PositionLot):
         self.entitlement_in: float | None = None  # asset per share
         self.entitlement_out_list: List[float] = []  # asset per share
 
-    def buy(
+    def record_in(
         self,
         units_in: float,  # units to buy
         entitlement_in: float,  # asset units per a share unit when buying
@@ -33,7 +33,7 @@ class ShareLot(PositionLot):
         self.datetime_in: datetime.datetime = datetime_in
         return cash_in
 
-    def sell(
+    def record_out(
         self,
         units_out: float,  # units to sell
         entitlement_out: float,  # asset units per a share unit when selling
@@ -54,45 +54,45 @@ class ShareLot(PositionLot):
         return cash_out
 
 
-def buy_share_lot(
+def record_share_lot_in(
     share_lot: ShareLot,
     share_units_in: float,  # share units to buy
     entitlement_in: float,  # asset units per a share unit when buying
     share_price_in: float,
     datetime_in: datetime.datetime,
 ) -> float:
-    cash_in: float = share_lot.buy(
+    cash_in: float = share_lot.record_in(
         units_in=share_units_in,
         entitlement_in=entitlement_in,
         price_in=share_price_in,
         datetime_in=datetime_in,
     )
-    share_lot.asset_lot.buy(
+    share_lot.asset_lot.record_in(
         share_units_in=share_units_in,
         entitlement_in=entitlement_in,
-        price_in_implied=share_price_in / entitlement_in,
+        price_in=share_price_in / entitlement_in,  # implied price
         datetime_in=datetime_in,
     )
     return cash_in
 
 
-def sell_share_lot(
+def record_share_lot_out(
     share_lot: ShareLot,
     share_units_out: float,  # share units to sell
     entitlement_out: float,  # asset units per a share unit when selling
     share_price_out: float,
     datetime_out: datetime.datetime,
 ) -> float:
-    cash_out: float = share_lot.sell(
+    cash_out: float = share_lot.record_out(
         units_out=share_units_out,
         entitlement_out=entitlement_out,
         price_out=share_price_out,
         datetime_out=datetime_out,
     )
-    share_lot.asset_lot.sell(
+    share_lot.asset_lot.record_out(
         share_units_out=share_units_out,
         entitlement_out=entitlement_out,
-        price_out_implied=share_price_out / entitlement_out,
+        price_out=share_price_out / entitlement_out,  # implied price
         datetime_out=datetime_out,
     )
     return cash_out

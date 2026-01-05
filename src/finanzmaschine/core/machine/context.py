@@ -1,7 +1,7 @@
 import datetime
 import math
 
-from core.positions import ShareLot
+from finanzmaschine.core.lots import ShareLot
 
 
 class Context:

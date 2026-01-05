@@ -1,3 +1,5 @@
+import datetime
+
 from finanzmaschine.core.lots.base_lot import BaseLot
 
 
@@ -15,3 +17,12 @@ class PositionLot(BaseLot):
     @property
     def is_closed(self) -> bool:
         return not self.is_open
+
+    def record_out(
+        self,
+        units_out: float,
+        *args,
+        **kwargs,
+    ) -> None:
+        assert units_out <= self.units_open
+        return super().record_out(units_out, *args, **kwargs)

@@ -4,12 +4,12 @@ import math
 from finanzmaschine.core.lots import ShareLot
 
 
-class ShareContext:
+class ShareLotContext:
     """
-    Based on the share context, the machine determines the next steps.
+    Based on the share lot context, the machine determines the next steps.
 
-    The share context defines the initial conditions, constraints, and
-    derived thresholds used by the machine to decide how to proceed.
+    The share lot context defines the initial conditions, constraints,
+    and derives thresholds used by the machine to decide how to proceed.
     """
 
     def __init__(

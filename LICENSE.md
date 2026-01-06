@@ -123,3 +123,5 @@ Place of jurisdiction shall be the author's place of residence, insofar as legal
 For commercial licensing, production deployment, or partnership inquiries, please contact the author via GitHub:
 
 https://github.com/ax-va
+
+© 2024–2026 ax-va. All rights reserved.

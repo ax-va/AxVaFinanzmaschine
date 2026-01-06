@@ -1,1 +1,1 @@
-# Finanzmaschine
+© 2024–2026 ax-va. All rights reserved.

@@ -7,10 +7,15 @@ from finanzmaschine.core.market.asset import Asset
 
 class AssetLot(BaseLot[BaseLotRecord]):
     """
-    A lot corresponding to an underlying asset.
+    A lot representing exposure to an underlying asset.
 
-    Unit balance is not invariant and may change due to
+    Unit balance is not invariant and may change over time due to
     entitlement adjustments, fees, or asset-specific mechanics.
+
+    The number of asset units is defined by the formula:
+    asset_units = share_units * entitlement,
+    where entitlement is a time-dependent mapping that determines
+    how many asset units are represented by a single share unit.
     """
 
     record_cls = BaseLotRecord

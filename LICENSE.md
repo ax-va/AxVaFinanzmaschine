@@ -33,7 +33,7 @@ For the purposes of this license:
 
 ## 2. License Grant (Non-Commercial Use Only)
 
-The author grants a personal, limited, non-exclusive, non-transferable license to use the Software **solely for non-commercial purposes**, including:
+The Author grants a personal, limited, non-exclusive, non-transferable license to use the Software **solely for non-commercial purposes**, including:
 
 - **Education and Scientific Research**
     
@@ -105,7 +105,7 @@ All rights not expressly granted remain reserved.
 
 The Software is provided "as is". No warranties of any kind, express or implied, are provided.
 
-The author shall not be liable for damages arising from the use of the Software, except in cases of intent (Vorsatz) or gross negligence (grobe Fahrlässigkeit), or where liability is mandatory under applicable law.
+The Author shall not be liable for damages arising from the use of the Software, except in cases of intent (Vorsatz) or gross negligence (grobe Fahrlässigkeit), or where liability is mandatory under applicable law.
 
 ## 7. Third-Party Software and Dependencies
 
@@ -113,7 +113,7 @@ The Software may include, depend on, or interoperate with third-party software, 
 
 Such Third-Party Software is provided under its own respective licenses and terms, which are solely the responsibility of their respective authors or licensors.
 
-The author of this Software:
+The Author of this Software:
 
 - does not grant any rights to Third-Party Software,
 
@@ -129,11 +129,11 @@ third-party license terms.
 ## 8. Governing Law and Jurisdiction
 
 This license shall be governed by the laws of the Federal Republic of Germany.
-Place of jurisdiction shall be the author's place of residence, insofar as legally permissible.
+Place of jurisdiction shall be the Author's place of residence, insofar as legally permissible.
 
 ## 9. Commercial Licensing
 
-For commercial licensing, production deployment, or partnership inquiries, please contact the author via GitHub:
+For commercial licensing, production deployment, or partnership inquiries, please contact the Author via GitHub:
 
 https://github.com/ax-va
 

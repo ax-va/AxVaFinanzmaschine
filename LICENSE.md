@@ -103,9 +103,11 @@ All rights not expressly granted remain reserved.
 
 ## 6. Liability Disclaimer (Haftung)
 
-The Software is provided "as is". No warranties of any kind, express or implied, are provided.
+The Software is provided "as is". 
 
 The Author shall not be liable for damages arising from the use of the Software, except in cases of intent (Vorsatz) or gross negligence (grobe Fahrlässigkeit), or where liability is mandatory under applicable law.
+
+No warranties of any kind, express or implied, are provided.
 
 ## 7. Third-Party Software and Dependencies
 

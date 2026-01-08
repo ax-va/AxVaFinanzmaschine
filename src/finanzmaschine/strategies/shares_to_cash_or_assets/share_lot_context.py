@@ -27,10 +27,14 @@ class ShareLotContext:
             assert 0 < asset_loss_pct < 1
         if asset_local_high is not None:
             assert asset_local_high > 0
-        if asset_vac_upper_bound is not None and asset_local_high is not None:
-            assert 0 < asset_vac_upper_bound < asset_local_high
-        if asset_acc_upper_bound is not None and asset_local_high is not None:
-            assert 0 < asset_acc_upper_bound < asset_local_high
+        if asset_vac_upper_bound is not None:
+            assert asset_vac_upper_bound >= 0
+            if asset_local_high is not None:
+                assert asset_vac_upper_bound <= asset_local_high
+        if asset_acc_upper_bound is not None:
+            assert asset_acc_upper_bound >= 0
+            if asset_local_high is not None:
+                assert asset_acc_upper_bound <= asset_local_high
         if asset_vac_upper_bound is not None and asset_acc_upper_bound is not None:
             assert asset_vac_upper_bound <= asset_acc_upper_bound
 
@@ -76,12 +80,10 @@ class ShareLotContext:
 
     @property
     def asset_stop_loss_price(self) -> float | None:
-        if (
-            self.asset_vac_upper_bound is not None
-            and self.asset_loss_pct is not None
-        ):
-            asset_stop_loss_raw: float = self.share_lot.asset_lot.lot_record_in.price * (1 - self.asset_loss_pct)
-            asset_stop_loss: float = max(self.asset_vac_upper_bound, asset_stop_loss_raw)
+        if self.asset_loss_pct is not None:
+            asset_stop_loss: float = self.share_lot.asset_lot.lot_record_in.price * (1 - self.asset_loss_pct)
+            if self.asset_vac_upper_bound is not None:
+                asset_stop_loss: float = max(self.asset_vac_upper_bound, asset_stop_loss)
             return asset_stop_loss
         else:
             return None

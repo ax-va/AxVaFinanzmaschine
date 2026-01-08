@@ -60,7 +60,7 @@ class BaseLot(Generic[TLotRecord]):
         lot_record_out = self.record_cls(
             units=units,
             price=price,
-            dt=dt,
+            datetime=datetime,
             **kwargs,
         )
         self.lot_records_out.append(lot_record_out)
